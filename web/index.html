@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <script>
+        function f1()
+        {
+            var name = document.myform.name.value;
+            console.log(name);
+        }
+        function f2()
+        {
+            var password = document.myform.password.value;
+            console.log(password);
+        }
+        function f3()
+        {
+                    var conform password = document.myform.conform password.value;
+                    console.log(conform password);
+                }
+                function f4()
+                {
+            var phoneno = document.myform.phoneno.value;
+            console.log(phoneno);
+        }
+            if (name == null || name == "")
+            {
+            console.log("name can't be blank");
+            }
+            else if (password.length < 6){
+            console.log("Password must be at least 6 characters long.");
+                    return false;
+            }
+           else if (password == conform password)
+            {
+            console.log("equal");
+                    return true;
+            }
+            else if (phoneno = 10)
+            {
+                console.log("phone no equal to 10");
+                return true;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<center>
+    <h2> register</h2>
+    <form name="myform" method="post"  onsubmit="return f1()">  
+        <table border="5" color="red">
+            <tr><td>Name:<input type="text" id ="one" name="name" size=50 onblur="f1()"></tr></td><br/>
+            <tr><td>Password:<input type="password" name="password" size=50 onblur="f2()"></tr></td><br/>
+            <tr><td>conform password:<input type="password" name="conform password" size=50 onblur="f3()"></tr></td><br/> 
+            <tr><td>phoneno:<input type="text" name="phoneno" size=50 onblur="f4()"></tr></td><br/>
+
+            <tr><td> <input type="submit" value="submit"></tr></td>
+        </table>
+    </form>
+</center>
+</body>
+</html>

@@ -100,6 +100,30 @@ and open the template in the editor.
                     
                 }
             }
+              function f3(){
+                        
+                  var url = "Registration.html";
+                if (window.XMLHttpRequest) {
+                    request = new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject) {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+             
+                    request.onreadystatechange=getInfo;
+                    request.open("GET", url, true);
+                    request.send();
+             
+            }
+
+            function getInfo() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var val1 = request.responseText;
+                    document.getElementById('t1').innerHTML=val1;
+                    
+                }
+            }
             
         </script>
     </head>

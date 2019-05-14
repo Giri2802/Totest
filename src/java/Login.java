@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author miracle
  */
-public class RegistrationPage extends HttpServlet {
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,39 +33,40 @@ public class RegistrationPage extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        String name=request.getParameter("name");
+    PrintWriter pt=response.getWriter();
         String email=request.getParameter("email");
-        String password=request.getParameter("pass");
-        String conpassword=request.getParameter("conpassword");
-        boolean st = false;
-        try{
-         Connection con= null;
-         Class.forName("com.ibm.db2.jcc.DB2Driver");
-         con=DriverManager.getConnection("jdbc:db2://172.17.0.142:50001/itgdb", "mssusr6", "miracle6");
-            PreparedStatement pstmt=con.prepareStatement("insert into Registration values(?,?,?,?)");
-                pstmt.setString(1, name);
-                pstmt.setString(2, email);
-                pstmt.setString(3, password);
-                pstmt.setString(4, conpassword);
-                
-                int c = pstmt.executeUpdate();
-                System.out.println(c);
-                if(c>0){
-                    out.println("Succesfully stored deatils");
-                }else{
-                 out.println("Failed to store");       }
-
+        String pass=request.getParameter("password");
         
-        }catch(Exception e){
-            
+        boolean st= false;
+        try{
+            Connection con=null;
+         Class.forName("com.ibm.db2.jcc.DB2Driver");
+        con=DriverManager.getConnection("jdbc:db2://172.17.0.142:50001/itgdb", "mssusr6", "miracle6");
+            PreparedStatement pstmt=con.prepareStatement("select * from registration where email=? and password=?");
+            pstmt.setString(1, email);
+            pstmt.setString(2, pass);
+        ResultSet rs=pstmt.executeQuery();
+        st=rs.next();
+        if(st)
+        {
+            RequestDispatcher r=request.getRequestDispatcher("Registration.html");
+            r.forward(request, response);
+        
         }
+        else
+        {
+            pt.println("Login Failed check credentials");
+            RequestDispatcher r=request.getRequestDispatcher("Login.html"); 
+            r.include(request, response);
+       
+        }
+        }catch(Exception e){
+        
+        }
+            
+            
+            
+    
+}
 
-    
-    
-    
-    
-    
-    
-    }
 }

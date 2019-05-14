@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Ajax With Json</title>
+        <script>
+           var request;
+            function f3() {
+             
+                var i = document.f1.n.value;
+                var url = "Json?val=" + i;
+                if (window.XMLHttpRequest) {
+                    request = new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject) {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+             
+                    request.onreadystatechange=getInfo;
+                    request.open("GET", url, true);
+                    request.send();
+             
+            }
+
+            function getInfo() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var val1 = request.responseText;
+                    document.getElementById('span').innerHTML = val1;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="f1">
+            Enter Id:<input type="text" name="n"></br>
+           <input type="button" value="click" onClick="f3()">  
+       
+        </form>
+             <span id="span"></span>
+    </body>
+</html>
+

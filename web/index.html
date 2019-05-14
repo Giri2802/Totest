@@ -15,32 +15,40 @@
                     if (Name == null || Name == "") {
                         window.alert("Name can't be empty");
                         console.log("no")
+
+                        if (Password == null || Password == "") {
+                            window.alert("Enter Password");
+                            console.log("no")
+
+                            if (Password.length < 6)
+                            {
+                                window.alert("Password must be 6 characters");
+                                console.log("no")
+
+                                if (Cpassword != Password) {
+                                    window.alert("Password Mismatch");
+                                    console.log("no")
+
+                                    if (Phone.length != 10) {
+                                        window.alert("Enter phone number correctly");
+                                        console.log("no")
+
+                                        if (regx.test(Phone) == false) {
+                                            window.alert("Enter mobile number correctly");
+                                            console.log("no")
+
+                                            if (reg.test(Email) == false) {
+                                                window.alert("Enter correct email id");
+                                                console.log("no")
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
                     }
-                    if (Password == null || Password == "") {
-                        window.alert("Enter Password");
-                        console.log("no")
-                    }
-                    if (Password.length < 6)
-                    {
-                        window.alert("Password must be 6 characters");
-                        console.log("no")
-                    }
-                    if (Cpassword != Password) {
-                        window.alert("Password Mismatch");
-                        console.log("no")
-                    }
-                    if (Phone.length != 10) {
-                        window.alert("Enter phone number correctly");
-                        console.log("no")
-                    }
-                    if (regx.test(Phone) == false) {
-                        window.alert("Enter mobile number correctly");
-                        console.log("no")
-                    }
-                    if (reg.test(Email) == false) {
-                        window.alert("Enter correct email id");
-                        console.log("no")
-                    }
+
                 }
             }
         </script>
@@ -48,12 +56,12 @@
     <body style="background-image:url('C:\Users\miracle\Desktop\HARIKA\imgbg.jpg');">
     <center>
 
-        <form name="f1"  method="post" >
+        <form name="f1"  method="post" onSubmit="return valid()">
             <h3><u>REGISTRATION PAGE</u></h3>
             <table border="10" bgcolor="gray">
                 <tr>
                     <td>Name:</td>
-                    <td><input type="text"  name="name" onblur="valid()"  /><br/></td>
+                    <td><input type="text"  name="name"   /><br/></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
@@ -62,15 +70,15 @@
                 <tr>
 
                     <td>Confirm Password:</td>
-                    <td><input type="Password" id="cpwd" Name="Password" onblur="valid()" /><br/></td>
+                    <td><input type="Password" id="cpwd" Name="Password"  /><br/></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="Email" id="email" Name="email" onblur="valid()"/><br/></td>
+                    <td><input type="Email" id="email" Name="email" /><br/></td>
                 </tr>
                 <tr>
                     <td>Phone No:</td>
-                    <td><input type="Phone" id="phone" name="Phone" onblur="valid()"/><br/></td>
+                    <td><input type="Phone" id="phone" name="Phone" /><br/></td>
                 </tr>
                 <tr>
                     <td>DOB:</td>
@@ -159,7 +167,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center"/>
-                <input type="submit" value="Submit" onClick="return valid()"></td>
+                <input type="submit" value="Submit" ></td>
                 </tr>
 
             </table>

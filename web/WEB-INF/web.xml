@@ -4,9 +4,49 @@
         <servlet-name>RegistrationPage</servlet-name>
         <servlet-class>RegistrationPage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendRedirect</servlet-name>
+        <servlet-class>Sendreex</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Send</servlet-name>
+        <servlet-class>Send</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Cookie</servlet-name>
+        <servlet-class>Cookie</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Json</servlet-name>
+        <servlet-class>Json</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegistrationPage</servlet-name>
         <url-pattern>/RegistrationPage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendRedirect</servlet-name>
+        <url-pattern>/SendRedirect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Send</servlet-name>
+        <url-pattern>/Send</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cookie</servlet-name>
+        <url-pattern>/Cookie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Json</servlet-name>
+        <url-pattern>/Json</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

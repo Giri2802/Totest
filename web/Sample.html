@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sample Web Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .header{
+                background-color: #cceeff;
+                height: 100px;
+                text-align: center;
+                padding: 20px;
+            }
+            .div1{
+                background-color: #4d004d;
+                height: 48px;
+            }
+            .div1 a {
+                float: left;
+                color: #ffffff;
+                text-align: center;
+                padding: 14px 25px ;
+                text-decoration: none;
+            }
+            .div1 a:hover{
+                background-color: #ffe6ff;
+                color: #4d004d;
+            }
+            .div2{
+                background-color: #cce6ff;
+                width: 90px; 
+                height: auto;
+            }
+            .div2 {
+                   background-color: #e6ffff;
+                   width: 150px;
+                  float: left;
+                  display: block;
+                height: 600px;
+                border: 1px dotted black;
+                  padding: 14px 25px ;
+                overflow: scroll;
+              text-decoration: none;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                width: 60px;
+            } 
+            .div2 a:hover{
+                background-color: #ffe6ff;
+                color: #4d004d;
+            }
+            li a {
+                display: block;
+     list-style-type: none;
+            }
+            a {
+      text-decoration:none;
+   }
+   .div3{
+       background-color: #cceeff;
+       height: 630px;
+   }
+   
+   
+       
+       
+   
+        </style>
+        
+        <script>
+            function f2(){
+                        
+                  var url = "Login.html";
+                if (window.XMLHttpRequest) {
+                    request = new XMLHttpRequest();
+                }
+                else if (window.ActiveXObject) {
+                    request = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+             
+                    request.onreadystatechange=getInfo;
+                    request.open("GET", url, true);
+                    request.send();
+             
+            }
+
+            function getInfo() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var val1 = request.responseText;
+                    document.getElementById('t1').innerHTML=val1;
+                    
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <form name="f1">
+            <div id="header">
+                <header class="header"><h1>This IS A header</h1></header>
+            </div>
+            <div class="div1">
+                <a href="#">ONE</a>
+                <a href="#">TWO</a>
+                <a href="#">THREE</a>
+                <a href="#">FOUR</a>
+                <a href="#">FIVE</a>
+                <a href="#">SIX</a>
+                <a href="#">SEVEN</a>
+            </div>
+            <div class="div2">
+                <ul><h3>
+                        <li><a href="#" >ONE</a></li>
+                    <li><a href="#">TWO</a></li>
+                    <li><a href="#">THREE</a></li>
+                    <li><a href="#">FOUR</a></li>
+                    <li><a href="#">FIVE</a></li>
+                    <li><a href="#">SIX</a></li>
+                    <li><a href="#">SEVEN</a></li>
+                    <li><a href="#">ONE</a></li>
+                    <li><a href="#">TWO</a></li>
+                    <li><a href="#">THREE</a></li>
+                    <li><a href="#">FOUR</a></li>
+                    <li><a href="#">FIVE</a></li>
+                    <li><a href="#">SIX</a></li>
+                    <li><a href="#">SEVEN</a></li>
+                    <li><a href="#">ONE</a></li>
+                    <li><a href="#">TWO</a></li>
+                    <li><a href="#">THREE</a></li>
+                    <li><a href="#">FOUR</a></li>
+                    <li><a href="#">FIVE</a></li>
+                    <li><a href="#">SIX</a></li>
+                    <li><a href="#">SEVEN</a></li>
+                    <li><a href="#">ONE</a></li>
+                    <li><a href="#">TWO</a></li>
+                    <li><a href="#">THREE</a></li>
+                    <li><a href="#">FOUR</a></li>
+                    <li><a href="#">FIVE</a></li>
+                    <li><a href="#">SIX</a></li>
+                    <li><a href="#">SEVEN</a></li>
+                    </h3></ul>
+            </div>
+            <div class="div3" id="t1">
+                <button type="button" id="btn1" onclick="f2()">Click Page 1</button>
+                <button type="button" id="btn2" onclick="f3()">Click Page 2</button>
+                   
+                
+                
+            </div>
+
+        </form>
+    </body>
+</html>

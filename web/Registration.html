@@ -6,32 +6,67 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Registration Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+    <script>
+       
+         function f1() {
+               var name = document.regis.name.value;
+         var email = document.regis.email.value;
+         var password = document.regis.pass.value;
+         var conpass = document.regis.conpassword.value;
+         var reg = /^([A-Za-z0-9_\-\.])+\@([a-z])+\.([A-Za-z]{2,4})$/;
+         var pasreg=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+ 
+             if (name ==""||name==null){
+                 window.alert("Enter name Correctly");
+            return false;}
+        
+             if (reg.test(email)==false){
+                 window.alert("please check email format");
+            return false;}
+            if(password!=conpass){
+                 window.alert("password mismatch");
+            return false;}
+            if(password.length<6){
+                 window.alert("password must contain atleast 6 characters");
+            return false;}
+            if(pasreg.test(password)){
+                 window.alert("password must be in alphanumeric");
+            return false; }
+             
+             
+         }
+ 
+     </script>
+    
     <body>
     <center> 
-        <form method="GET" action="RegistrationPage">
+        <form name="regis" method="GET" action="RegistrationPage">
             <h1>Registration Page</h1>
-            <table border="5" bgcolor="gray">
-                
-            Name:<input type="text" name="name"/></br>
-            Email:<input type="email" name="email"/></br>
-            Password:<input type="password" name="pass"/></br>
-            Confirm Password:<input type="password" name="conpassword"/></br>
-            <input type="submit" value="submit"/>
-            
-            
-            
-            
-            
+            <table border="10" bgcolor="gray"/>
+            <tr> 
+                <td>Name:</td>
+                <td><input type="text" name="name" onblur="f1()"/></td></br>
+            </tr>
+            <tr>
+                <td>Email:</td><td><input type="email" name="email" onblur="f1()"/></td></br>
+            </tr> 
+            <tr>
+                <td>Password:</td><td><input type="password" name="pass" onblur="f1()"/></td></br>
+
+            </tr>
+            <tr>
+                <td>Confirm Password:</td><td><input type="password" name="conpassword" onblur="f1()"/></td></br>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"/>
+            <input type="submit" value="Submit" ></td>
+            </tr>
             </table>
         </form>
-        
-        
-        
-        
-        </center>
-    </body>
+   </center>
+</body>
 </html>
